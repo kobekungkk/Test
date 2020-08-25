@@ -5,5 +5,5 @@ require.config({
     }
 })
 require(['login1'],function(login1){
-    
+    login1.loginTest()
 })

@@ -22,7 +22,8 @@ define(['jquery','jquery-cookie'],function($){
                     }else{
                         $('.body .msg').css({
                             display:'block',
-                            color:'green'
+                            color:'green',
+                            border:'1px solid green'
                         }).html(obj.msg)
                         setTimeout(function(){
                             location.href = 'login.html'

@@ -15,6 +15,7 @@
         echo json_encode($arr);
         exit;
     }
+    $str = md5(md5($password).'gkk');
     //1.连接数据库
     $link = mysql_connect('127.0.0.1','root','123456');
     //2.设置编码方式
@@ -29,20 +30,20 @@
     //4.选择数据库
     mysql_select_db('lining');
     //5.编写数据库语句
-    $sql = "select *from users where username = '{$username}' and password = '{$password}'";
+    $sql = "select *from users where username = '{$username}' and password = '{$str}'";
     //6.发送sql语句
     $res = mysql_query($sql);
     //7.取一行
-    $row = mysql_fetch_assoc($res)
+    $row = mysql_fetch_assoc($res);
     if(!$row){
         $arr['num'] = 4;
         $arr['msg'] = '用户名或密码错误';
         echo json_encode($arr);
         exit;
     }else{
-        $arr['msg'] = '登录成功！'
-        echo json_encode($arr)
+        $arr['msg'] = '登录成功！';
+        echo json_encode($arr);
     }
-    mysql_close($link)
+    mysql_close($link);
     
 ?>
